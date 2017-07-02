@@ -12,7 +12,7 @@ print("<pre style=\"font: 10px/5px monospace; text-align: center;\">", file=a)
 for y in range(0, height):
     for x in range(0, width):
         pxRGB = im.getpixel((x,y))
-        R,G,B = pxRGB
+        R,G,B,A = pxRGB
         brt = sum([R,G,B])/3/255
         if brt>=0 and brt <0.2:
             print("#", end='', file=a)
