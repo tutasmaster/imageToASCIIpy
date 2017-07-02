@@ -9,7 +9,7 @@ im = Image.open("sample.png").convert('RGBA')
 px = im.load()
 width,height = im.size
 
-print("<pre style=\"font: 10px/5px monospace; text-align: center;\">", file=a)
+print("<pre style=\"font-size: 5px; display: inline-block; font-family: monospace;letter-spacing: 0.0em;line-height: 0.7em;\">", file=a)
 
 for y in range(0, height):
     for x in range(0, width):
