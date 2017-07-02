@@ -1,8 +1,10 @@
+import math
 from PIL import Image
+
 
 a = open("image.html","w")
 
-symbols = [chr(219),"#","O","A","T","I","i",";",",","."," "]
+symbols = ["#","O","A","T","I","i",";",",","."," "]
 symbolSize = 1/len(symbols)
 
 im = Image.open("sample.png").convert('RGBA')
@@ -16,8 +18,10 @@ for y in range(0, height):
         pxRGB = im.getpixel((x,y))
         R,G,B,A = pxRGB
         brt = sum([R,G,B])/3/255
-        if A > 0:
+        if A > 0 and brt > 0.1:
             pos = round(brt/symbolSize)
+        elif A > 0 and brt <= 0.1:
+            pos = 1
         else:
             pos = len(symbols)
         print(symbols[pos - 1],end="",file=a)
